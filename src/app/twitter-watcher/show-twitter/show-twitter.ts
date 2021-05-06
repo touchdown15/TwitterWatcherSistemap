@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'show-twitter',
   templateUrl: './show-twitter.html',
   styleUrls: ['./show-twitter.css']
 })
-export class ShowTwitterComponent {
-  title = 'twitterWatcher';
+export class ShowTwitterComponent implements OnInit {
+
+
+  ngOnInit(): void{
+
+  }
+
 }

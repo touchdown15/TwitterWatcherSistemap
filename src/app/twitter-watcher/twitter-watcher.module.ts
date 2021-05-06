@@ -6,6 +6,7 @@ import { MyTwitterComponent } from './my-twitter/my-twitter';
 import { PostTwitterComponent } from './post-twitter/post-twitter';
 import { ShowTwitterComponent } from './show-twitter/show-twitter';
 import { TrackerTwitterComponent } from './tracker-twitter/tracker-twitter';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { TrackerTwitterComponent } from './tracker-twitter/tracker-twitter';
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class TwitterWatcherModule { }

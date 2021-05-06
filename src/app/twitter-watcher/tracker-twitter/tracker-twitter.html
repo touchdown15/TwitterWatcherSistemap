@@ -1,5 +1,19 @@
 <div class="container-view">
   <mat-card class="container-card">
     <h2>Tracker Twitter Component</h2>
+    <form autocomplete="off" novalidate [formGroup]="searchFilter">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tweets do Twitter Pesquisado</mat-label>
+        <input matInput placeholder="Ex. NetflixBrasil " name="twitterUser" formControlName="twitterUser">
+      </mat-form-field>
+
+    </form>
+
+    <div *ngFor="let t of tweetsOfUser">
+      @{{t.user.screen_name}}
+      {{t.full_text}}
+      {{t.created_at}}
+    </div>
   </mat-card>
 </div>
