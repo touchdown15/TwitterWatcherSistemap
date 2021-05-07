@@ -1,8 +1,10 @@
 # Twitter Watcher
 
-## Projeto Front-end (Angular v10) voltado a utilização da Api do twitter para monitoramento de twittes.
+## Projeto Front-end (Angular v10) voltado para a utilização da Api do twitter para monitoramento de tweets.
 
-<h4 align="center"> 
-	🚧  CSS Em construção...  🚧
-</h4>
+### Features
 
+- [x] Postar um tweet (no twitter logado pelo back-end)
+- [x] Visualizar seus últimos 10 tweets postados
+- [x] Pesquisar twitter (usuário) por nome (@nome)
+- [x] Visualizar os últimos 10 tweets postados pelo usuário pesquisado
