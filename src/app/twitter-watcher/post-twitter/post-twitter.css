@@ -1,0 +1,33 @@
+.container-view{
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+ }
+
+.container-card{
+  height: 200px;
+  width: 230px;
+
+  background-image: linear-gradient( to bottom, rgb(231, 246, 255), transparent, cornflowerblue);
+}
+
+.container-post-title{
+  text-align: center;
+}
+
+.input-save-tweet{
+  display: flex;
+  justify-content: center;
+}
+
+.btnSave{
+  display: flex;
+  justify-content: center;
+
+  opacity:0.8;
+}
+
+.btnSave:hover{
+  opacity:1;
+}

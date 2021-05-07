@@ -1,19 +1,49 @@
 <div class="container-view">
   <mat-card class="container-card">
-    <h2>Tracker Twitter Component</h2>
+
+    <h2 class="container-tracker-tweets-title">Procurar Twitter</h2>
     <form autocomplete="off" novalidate [formGroup]="searchFilter">
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Tweets do Twitter Pesquisado</mat-label>
+      <mat-form-field class="input-form-search">
+        <mat-label>Pesquisar Twitter</mat-label>
         <input matInput placeholder="Ex. NetflixBrasil " name="twitterUser" formControlName="twitterUser">
       </mat-form-field>
 
     </form>
 
+
     <div *ngFor="let t of tweetsOfUser">
-      @{{t.user.screen_name}}
-      {{t.full_text}}
-      {{t.created_at}}
+
+      <mat-card class="tweets-card">
+
+        <div class="twitter-profile">
+
+          <div class="twitter-profile-pic">
+            <img [src]="t.user.profile_image_url">
+          </div>
+
+          <div class="twitter-profile-content">
+            <div class="twitter-profile-name">
+              {{t.user.name}}
+            </div>
+            <div class="twitter-profile-screen-name">
+              @{{t.user.screen_name}}
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="twitter-text">
+          {{t.full_text}}
+        </div>
+
+        <div class="twitter-date">
+          {{t.created_at | date: 'dd/MM/yyyy HH:mm'}}
+        </div>
+
+      </mat-card>
+
     </div>
   </mat-card>
 </div>

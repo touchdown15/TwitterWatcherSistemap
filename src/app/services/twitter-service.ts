@@ -26,7 +26,9 @@ export class TwitterService {
         map(res => res['data'].map(obj => {
           return{
             user: {
-              screen_name: obj.user.screen_name
+              name: obj.user.name,
+              screen_name: obj.user.screen_name,
+              profile_image_url: obj.user.profile_image_url
             },
             full_text: obj.full_text,
             created_at: obj.created_at
@@ -42,7 +44,9 @@ export class TwitterService {
         map(res => res['data'].map(obj => {
           return{
             user: {
-              screen_name: obj.user.screen_name
+              name: obj.user.name,
+              screen_name: obj.user.screen_name,
+              profile_image_url: obj.user.profile_image_url
             },
             full_text: obj.full_text,
             created_at: obj.created_at

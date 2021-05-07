@@ -1,9 +1,9 @@
 <div class="container-view">
   <mat-card class="container-card">
-    <h2>Post Twitter Component</h2>
+    <h2 class="container-post-title">Postar Tweet</h2>
     <form autocomplete="off" novalidate [formGroup]="textForPost" (ngSubmit)="submit()">
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="input-save-tweet">
         <mat-label>Postar tweet</mat-label>
         <textarea matInput placeholder="Ex. Postando Tweet " name="status" formControlName="status"></textarea>
       </mat-form-field>

@@ -1,0 +1,6 @@
+.mat-toolbar-row, .mat-toolbar-single-row{
+  font-size: 25px;
+
+  align-items: center;
+  justify-content: center;
+}

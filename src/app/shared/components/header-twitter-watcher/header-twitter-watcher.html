@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" fullscreen>
   <mat-sidenav #sidenav class="sidenav" fixedInViewport="true" >
     <mat-toolbar color="primary">Menu</mat-toolbar>
   </mat-sidenav>
@@ -7,10 +7,7 @@
       <span class="header-toolbar-title">Twitter Watcher</span>
     </mat-toolbar>
 
-    <div class="app-content">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
 
   </mat-sidenav-content>
-
 </mat-sidenav-container>

@@ -1,10 +1,37 @@
 <div class="container-view">
   <mat-card class="container-card">
-    <h2>Meus Tweets</h2>
-    <div *ngFor="let t of tweets">
-      @{{t.user.screen_name}}
-      {{t.full_text}}
-      {{t.created_at}}
+    <h2 class="container-my-tweets-title">Meus Tweets</h2>
+    <div class="container-my-tweets-request" *ngFor="let t of tweets">
+
+      <mat-card class="tweets-card">
+
+        <div class="twitter-profile">
+
+          <div class="twitter-profile-pic">
+            <img [src]="t.user.profile_image_url">
+          </div>
+
+          <div class="twitter-profile-content">
+            <div class="twitter-profile-name">
+              {{t.user.name}}
+            </div>
+            <div class="twitter-profile-screen-name">
+              @{{t.user.screen_name}}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="twitter-text">
+          {{t.full_text}}
+        </div>
+
+        <div class="twitter-date">
+          {{t.created_at | date: 'dd/MM/yyyy HH:mm' }}
+        </div>
+
+      </mat-card>
+
     </div>
   </mat-card>
 </div>

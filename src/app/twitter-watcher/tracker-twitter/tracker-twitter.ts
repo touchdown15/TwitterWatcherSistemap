@@ -30,7 +30,6 @@ export class TrackerTwitterComponent implements OnInit {
     this.searchFilter.get('twitterUser').valueChanges
     .pipe(debounceTime(2000))
     .subscribe((val:string) =>{
-      console.log(val);
       this.getTweetsOfUser(val);
     });
 
@@ -39,7 +38,6 @@ export class TrackerTwitterComponent implements OnInit {
 
   getTweetsOfUser(request){
     this.twitterService.showTweetsOfUser(request).subscribe((res: Tweet[]) => {
-      console.log (res);
       this.tweetsOfUser = res;
     });
   }

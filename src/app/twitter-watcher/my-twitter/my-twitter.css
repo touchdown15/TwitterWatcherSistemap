@@ -1,4 +1,67 @@
-.container-view{
-  width: 100%;
-  height: 100%;
+.container-card{
+  display: flex;
+  flex-direction: column;
+
+  height: 600px;
+  max-width: 500px;
+  min-width: 300px;
+
+  background-image: linear-gradient( to bottom, rgb(231, 246, 255), transparent, cornflowerblue);
+
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.container-my-tweets-title{
+  text-align: center;
+}
+
+.container-my-tweets-request{
+  flex-direction: row;
+}
+
+.twitter-profile{
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  flex-direction: row;
+}
+
+.twitter-profile-content{
+  flex-direction: column;
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+.twitter-profile-screen-name{
+  font-size: 12px;
+}
+
+.twitter-text{
+  margin-top: 12px;
+
+  font-size: 18px;
+  font-style: italic;
+}
+
+.twitter-date{
+  font-size: 15px;
+  text-align: right;
+}
+
+.twitter-profile-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+.twitter-profile-pic img{
+  height: 4rem;
+}
+
+.tweets-card{
+  margin-bottom: 7px;
 }
