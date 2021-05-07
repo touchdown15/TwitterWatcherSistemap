@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,11 +6,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './show-twitter.html',
   styleUrls: ['./show-twitter.css']
 })
-export class ShowTwitterComponent implements OnInit {
-
-
-  ngOnInit(): void{
-
-  }
+export class ShowTwitterComponent {
 
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { TwitterService } from '../../services/twitter-service'
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'post-twitter',
@@ -19,16 +19,17 @@ export class PostTwitterComponent {
 
   ngOnInit(): void{
     this.textForPost = this.fb.group({
-      status: ['']
+      status: ['', [Validators.required]]
     });
   }
 
   submit(): void {
     const text = this.textForPost.getRawValue();
-    this.postTweet(text);
-
+    if(text.status !== ""){
+      this.postTweet(text);
+      this.textForPost.reset();
+    }
   }
-
 
   postTweet(request){
     this.twitterService.postTweets(request).subscribe(data => console.log(data));

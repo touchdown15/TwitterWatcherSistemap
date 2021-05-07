@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import { Tweet } from '../shared/models/tweet-model';
 
-const url = 'http://localhost:3000/'
+//ulr responsável pelas chamadas
+const URL = 'http://localhost:3000/'
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,16 @@ export class TwitterService {
 
   constructor(private http:HttpClient) { }
 
-  /*save(todolist : TodoList): Observable<TodoList> {
-    return this.http.post<TodoList>(url+'api/v1/todolist', todolist);
-  }*/
+  //Refresh após adicionar um novo tweet
+  private _refresh$ = new Subject<void>();
+
+  get refresh$(){
+    return this._refresh$;
+  }
 
   //Mostrar todos os 10 primeiros tweets do usuario
   showMyTweets(): Observable<Tweet[]>{
-    return this.http.get<Tweet[]>(url+'home_timeline')
+    return this.http.get<Tweet[]>(URL+'home_timeline')
       .pipe(
         map(res => res['data'].map(obj => {
           return{
@@ -39,7 +43,7 @@ export class TwitterService {
 
   //Mostrar os 10 primeiros Tweets do usuario buscado
   showTweetsOfUser(request): Observable<Tweet[]>{
-    return this.http.get<Tweet[]>(url+'user_timeline?user='+request)
+    return this.http.get<Tweet[]>(URL+'user_timeline?user='+request)
       .pipe(
         map(res => res['data'].map(obj => {
           return{
@@ -55,8 +59,14 @@ export class TwitterService {
       );
   }
 
+  //Publicar o tweet
   postTweets(request): Observable<Tweet>{
-    return this.http.post<Tweet>(url+'post_tweet', request);
+    return this.http.post<Tweet>(URL+'post_tweet', request)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+        })
+      );
   }
 
 }

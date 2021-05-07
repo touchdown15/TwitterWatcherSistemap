@@ -17,12 +17,16 @@ export class MyTwitterComponent  implements OnInit  {
   ){}
 
   ngOnInit(): void{
+    this.twitterService.refresh$
+      .subscribe(() => {
+        this.getTweets();
+      });
+
     this.getTweets();
   }
 
   getTweets(){
     this.twitterService.showMyTweets().subscribe((res: Tweet[]) => {
-      console.log (res);
       this.tweets = res;
     });
   }

@@ -19,11 +19,12 @@
 }
 
 .input-form-search{
-  display: flex;
-  justify-content: center;
+  display: block;
+  width: auto;
+  height: auto;
 }
 
- .twitter-profile{
+.twitter-profile{
   display: flex;
   font-size: 15px;
   font-weight: bold;
@@ -50,6 +51,8 @@
 .twitter-date{
   font-size: 15px;
   text-align: right;
+
+  margin-top: 5px;
 }
 
 .twitter-profile-pic{
@@ -66,4 +69,12 @@
 
 .tweets-card{
   margin-bottom: 7px;
+}
+
+.twitter-not-found{
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+
+  margin-top: 10px;
 }

@@ -4,8 +4,8 @@ import { Tweet } from '../../shared/models/tweet-model'
 import { TwitterService } from '../../services/twitter-service'
 
 import { debounceTime } from 'rxjs/operators';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'tracker-twitter',
@@ -16,6 +16,7 @@ export class TrackerTwitterComponent implements OnInit {
 
   tweetsOfUser: Tweet[];
   searchFilter: FormGroup;
+  searchFound = true;
 
   constructor(
     private twitterService: TwitterService,
@@ -24,22 +25,24 @@ export class TrackerTwitterComponent implements OnInit {
 
   ngOnInit(): void{
     this.searchFilter = this.fb.group({
-      twitterUser: ['']
+      twitterUser: ['', [Validators.required]]
     });
 
     this.searchFilter.get('twitterUser').valueChanges
     .pipe(debounceTime(2000))
     .subscribe((val:string) =>{
-      this.getTweetsOfUser(val);
+      if(val !== ''){
+        this.searchFound = true;
+        this.getTweetsOfUser(val);
+      }
     });
-
-
   }
 
   getTweetsOfUser(request){
-    this.twitterService.showTweetsOfUser(request).subscribe((res: Tweet[]) => {
-      this.tweetsOfUser = res;
-    });
+    this.twitterService.showTweetsOfUser(request)
+      .subscribe(
+        (res: Tweet[]) => {this.tweetsOfUser = res},
+        err => this.searchFound = false);
   }
 
 }
